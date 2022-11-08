@@ -1,0 +1,45 @@
+.btn-user {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  top: 30px;
+  background: url('../images/btn/btn_user.png') no-repeat center;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+
+  > a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  &:hover {
+    background: url('../images/btn/btn_user_h.png') no-repeat center;
+    background-size: cover;
+  }
+  &:active {
+    background: url('../images/btn/btn_user_p.png') no-repeat center;
+    background-size: cover;
+  }
+}
+
+.btn-signup {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  bottom: 20px;
+  height: auto;
+
+  .btn-join {
+    width: 103px;
+    height: 60px;
+
+    &:active {
+      content: url('../images/btn/btn_join_h.png');
+    }
+  }
+
+  .btn-hand {
+    width: 57px;
+  }
+}

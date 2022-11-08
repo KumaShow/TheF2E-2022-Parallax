@@ -1,0 +1,90 @@
+---
+title: TheF2E | Parallax
+layout: ./app/layout.ejs
+engine: ejs
+current: index
+---
+<!-- 圖片元件 -->
+<!-- 起跑門 -->
+<div class="bg-start"></div>
+<!-- 紅綠燈 -->
+<div class="bg-ready">
+  <img src="./assets/images/main/ready_3.png" alt="" class="bg-ready__r">
+  <img src="./assets/images/main/ready_2.png" alt="" class="bg-ready__y">
+  <img src="./assets/images/main/ready_1.png" alt="" class="bg-ready__g">
+</div>
+<!-- 跑道 -->
+<div class="bg-road"></div>
+<!-- 地圖 -->
+<div class="bg-map">
+  <img src="./assets/images/main/map.svg" alt="Map">
+  <img src="./assets/images/main/map_now.gif" alt="Map 現在位置" class="bg-map__now">
+</div>
+<!-- 跑者 -->
+<div class="bg-runner">
+  <img src="./assets/images/character/character_f2e.gif" alt="" class="bg-runner__f2e">
+  <img src="./assets/images/character/character_ui.gif" alt="" class="bg-runner__ui">
+  <img src="./assets/images/character/character_team.gif" alt="" class="bg-runner__team">
+</div>
+<!-- 雲朵 -->
+<div class="bg-cloud">
+  <img src="./assets/images/bg/bg_decorate_01.png" alt="背景雲朵" class="bg-cloud-left">
+  <img src="./assets/images/bg/bg_decorate_05.png" alt="背景雲朵" class="bg-cloud-right">
+</div>
+
+<main class="main">
+  <!-- 頂部 nav -->
+  <nav class="btn-user">
+    <a href="https://2022.thef2e.com/users"></a>
+  </nav>
+  <!-- 側邊 nav -->
+  <nav>
+    
+  </nav>
+  <!-- btn join -->
+  <div class="btn-signup d-flex flex-column align-items-center">
+    <h5 class="text-primary">JOIN</h5>
+    <img src="./assets/images/btn/btn_joinHand.png" alt="Hand" class="btn-hand mb-2">
+    <a href="#!" class="bg-transparent border-0">
+      <img src="./assets/images/btn/btn_join.png" alt="Join Button" class="btn-join">
+    </a>
+  </div>
+  
+  <section class="container">
+    <div class="text-center d-flex flex-column align-items-center mb-10 pt-12">
+      <img src="./assets/images/logo/logo_text.png" alt="Logo" class="logo">
+      <h1 class="bg-highlight text-white flex-grow-0 rounded-100 py-2 px-10">互動式網頁設計</h1>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <ul class="row text-center text-primary">
+          <li class="col-4">
+            <p class="font-bold mb-2 fs-5">前端工程師</p>
+            <div class="d-inline-flex justify-content-center align-items-center rounded-40 bg-primary text-white py-1 px-7">
+              <span class="material-symbols-outlined me-3">group</span>
+              <span>920</span>
+            </div>
+          </li>
+          <li class="col-4">
+            <p class="font-bold mb-2 fs-5">UI設計師</p>
+            <div class="d-inline-flex justify-content-center align-items-center rounded-40 bg-primary text-white py-1 px-7">
+              <span class="material-symbols-outlined me-3">group</span>
+              <span>1111</span>
+            </div>
+          </li>
+          <li class="col-4">
+            <p class="font-bold mb-2 fs-5">團體組</p>
+            <div class="d-inline-flex justify-content-center align-items-center rounded-40 bg-primary text-white py-1 px-7">
+              <span class="material-symbols-outlined me-3">group</span>
+              <span>40</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+</main>
