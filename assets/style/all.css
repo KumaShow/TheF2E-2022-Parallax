@@ -14968,8 +14968,6 @@ body {
 }
 
 .bg-ready {
-  background: url("../images/main/ready_frame.png") no-repeat center center;
-  background-size: cover;
   position: fixed;
   z-index: 1;
   right: 0;
@@ -14978,35 +14976,37 @@ body {
   height: 10%;
 }
 
-.bg-ready::before {
-  content: 'READY?';
-  color: #FF5136;
-  font-size: 32px;
+.bg-ready-frame {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.bg-ready-text {
   position: absolute;
   top: -55%;
   left: 16%;
 }
 
-.bg-ready > img {
-  width: 16.5%;
-}
-
 .bg-ready-r {
   position: absolute;
-  top: 28%;
+  top: 32%;
   left: 13%;
+  width: 17%;
 }
 
 .bg-ready-y {
   position: absolute;
-  top: 28%;
-  left: 37%;
+  top: 31%;
+  left: 36%;
+  width: 18%;
 }
 
 .bg-ready-g {
   position: absolute;
-  right: 23.5%;
-  top: 28%;
+  right: 23%;
+  top: 32%;
+  width: 18%;
 }
 
 .bg-road {

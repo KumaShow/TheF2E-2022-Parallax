@@ -1,7 +1,6 @@
 "use strict";
 "use strict";
 
-// var gsap = require("gsap/dist/gsap").gsap;
 var tl = gsap.timeline();
 gsap.registerPlugin(ScrollTrigger, TextPlugin); // Join Hand
 
@@ -25,7 +24,7 @@ ScrollTrigger.create({
   x: 50,
   pin: true,
   start: "top top",
-  end: "+=350",
+  end: "+=500",
   scrub: 2
 }); // 右邊雲
 
@@ -43,7 +42,7 @@ ScrollTrigger.create({
   x: 50,
   pin: true,
   start: "top top",
-  end: "+=350",
+  end: "+=550",
   scrub: 1.5
 }); // Logo > ul
 
@@ -54,37 +53,81 @@ ScrollTrigger.create({
   }, {
     opacity: 0
   }),
-  // markers: true,
-  start: "100% 5%",
-  end: "100% 5%",
-  // pin: true,
-  scrub: 1.5
-}); // ScrollTrigger.create({
-//   trigger: ".bg-ready",
-//   animation: gsap.to(".bg-ready-r", { opacity: 0 }),
-//   markers: true,
-//   start: "center 40%",
-//   end: "center 30%",
-//   scrub: true,
-// });
+  markers: true,
+  start: "150% 1%",
+  end: "150% 1%",
+  scrub: 1.5 // delay: 1,
+
+}); // 紅綠燈
 
 tl.to(".bg-ready-r", {
   opacity: 0,
   scrollTrigger: {
-    trigger: ".bg-ready",
-    // markers: true,
-    start: "center 40%",
-    end: "center 30%",
-    scrub: true
+    trigger: ".anima-user",
+    start: "150% 30%",
+    end: "150% 30%",
+    scrub: 1.5
   }
-}).to(".bg-ready-y", {
+}, ">").to(".bg-ready-y", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: ".anima-user",
+    start: "150% 30%",
+    end: "150% 30%",
+    scrub: 1.5 // duration: 2,
+
+  }
+}, "<").to(".bg-ready-y", {
   opacity: 0,
   scrollTrigger: {
-    trigger: ".bg-ready",
-    // markers: true,
-    start: "center 50%",
-    end: "center 50%",
-    scrub: true
+    trigger: ".anima-user",
+    start: "150% 17%",
+    end: "150% 17%",
+    scrub: 1.5 // duration: 2,
+
+  }
+}, ">").to(".bg-ready-g", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: ".anima-user",
+    start: "150% 17%",
+    end: "150% 17%",
+    scrub: 1.5 // duration: 2,
+
+  }
+}, "<").to(".bg-ready-g", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".anima-user",
+    start: "150% 1%",
+    end: "150% 1%",
+    scrub: 1.5 // duration: 2,
+
+  }
+}, "<").to(".bg-ready", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".anima-user",
+    start: "150% 1%",
+    end: "150% 1%",
+    scrub: 1.5
+  }
+}, "<"); // 滾到紅燈隱藏其他元素
+
+var domReady = gsap.utils.toArray(".anima-ready");
+domReady.forEach(function (item) {
+  console.log(item.classList);
+
+  if (item.classList.contains("anima-ready")) {
+    gsap.to(item, {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".bg-ready",
+        start: "center 50%",
+        end: "center 50%",
+        scrub: true
+      }
+    });
   }
 });
 //# sourceMappingURL=all.js.map
