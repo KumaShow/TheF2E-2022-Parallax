@@ -1,9 +1,19 @@
 .logo {
-  max-width: 500px;
+  max-width: 35%;
   z-index: 1;
 }
 
 .main {
   position: relative;
-  height: 1000px;
+  height: 2000px;
+}
+
+.anima-logo {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+}
+.anima-user {
+  // background-attachment: fixed;
+  
 }
