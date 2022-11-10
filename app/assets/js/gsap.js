@@ -1,4 +1,3 @@
-// var gsap = require("gsap/dist/gsap").gsap;
 const tl = gsap.timeline();
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -28,7 +27,7 @@ ScrollTrigger.create({
   x: 50,
   pin: true,
   start: "top top",
-  end: "+=350",
+  end: "+=500",
   scrub: 2,
 });
 
@@ -51,7 +50,7 @@ ScrollTrigger.create({
   x: 50,
   pin: true,
   start: "top top",
-  end: "+=350",
+  end: "+=550",
   scrub: 1.5,
 });
 
@@ -59,38 +58,109 @@ ScrollTrigger.create({
 ScrollTrigger.create({
   trigger: ".anima-user",
   animation: gsap.fromTo(".anima-user", { opacity: 1 }, { opacity: 0 }),
-  // markers: true,
-  start: "100% 5%",
-  end: "100% 5%",
-  // pin: true,
+  markers: true,
+  start: "150% 1%",
+  end: "150% 1%",
   scrub: 1.5,
+  // delay: 1,
 });
 
-// ScrollTrigger.create({
-//   trigger: ".bg-ready",
-//   animation: gsap.to(".bg-ready-r", { opacity: 0 }),
-//   markers: true,
-//   start: "center 40%",
-//   end: "center 30%",
-//   scrub: true,
-// });
-
-tl.to(".bg-ready-r", {
-  opacity: 0,
-  scrollTrigger: {
-    trigger: ".bg-ready",
-    // markers: true,
-    start: "center 40%",
-    end: "center 30%",
-    scrub: true,
+// 紅綠燈
+tl.to(
+  ".bg-ready-r",
+  {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".anima-user",
+      start: "150% 30%",
+      end: "150% 30%",
+      scrub: 1.5,
+    },
   },
-}).to(".bg-ready-y", {
-  opacity: 0,
-  scrollTrigger: {
-    trigger: ".bg-ready",
-    // markers: true,
-    start: "center 50%",
-    end: "center 50%",
-    scrub: true,
-  },
+  ">"
+)
+  .to(
+    ".bg-ready-y",
+    {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".anima-user",
+        start: "150% 30%",
+        end: "150% 30%",
+        scrub: 1.5,
+        // duration: 2,
+      },
+    },
+    "<"
+  )
+  .to(
+    ".bg-ready-y",
+    {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".anima-user",
+        start: "150% 17%",
+        end: "150% 17%",
+        scrub: 1.5,
+        // duration: 2,
+      },
+    },
+    ">"
+  )
+  .to(
+    ".bg-ready-g",
+    {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".anima-user",
+        start: "150% 17%",
+        end: "150% 17%",
+        scrub: 1.5,
+        // duration: 2,
+      },
+    },
+    "<"
+  )
+  .to(
+    ".bg-ready-g",
+    {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".anima-user",
+        start: "150% 1%",
+        end: "150% 1%",
+        scrub: 1.5,
+        // duration: 2,
+      },
+    },
+    "<"
+  )
+  .to(
+    ".bg-ready",
+    {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".anima-user",
+        start: "150% 1%",
+        end: "150% 1%",
+        scrub: 1.5,
+      },
+    },
+    "<"
+  );
+// 滾到紅燈隱藏其他元素
+const domReady = gsap.utils.toArray(".anima-ready");
+domReady.forEach((item) => {
+  console.log(item.classList);
+  if (item.classList.contains("anima-ready")) {
+    gsap.to(item, {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".bg-ready",
+        start: "center 50%",
+        end: "center 50%",
+        scrub: true,
+      },
+    });
+  }
 });
